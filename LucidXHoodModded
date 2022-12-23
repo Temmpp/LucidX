@@ -1,9 +1,18 @@
-game.StarterGui:SetCore("SendNotification", {
-	Title = "LucidX | Hood Modded";
-	Text = "Loaded",
-	Icon = "rbxassetid://0";
-	Duration = 5;
-})
+if _G.Key == "LucidXOnTop" then
+	game.StarterGui:SetCore("SendNotification", {
+		Title = "LucidX | Hood Modded";
+		Text = "Loaded",
+		Icon = "rbxassetid://0";
+		Duration = 5;
+	})
+else
+	game.StarterGui:SetCore("SendNotification", {
+		Title = "LucidX | Hood Modded";
+		Text = "Invalid key",
+		Icon = "rbxassetid://0";
+		Duration = 5;
+	})
+end
 
 game.Players.LocalPlayer.Chatted:Connect(function(Message)
 	local FOVSub = string.sub(Message,6)
