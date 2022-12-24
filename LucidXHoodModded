@@ -14,7 +14,7 @@
 ╚═╝░░░░░╚═╝░╚════╝░╚═════╝░╚═════╝░╚══════╝╚═════╝░
 ]]
 
-if _G.Key == "LucidXOnTop" then
+if _G.Key == "LucidX" then
 	game.StarterGui:SetCore("SendNotification", {
 		Title = "LucidX | Hood Modded";
 		Text = "Loaded",
