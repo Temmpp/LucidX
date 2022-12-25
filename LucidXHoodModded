@@ -178,11 +178,17 @@ end coroutine.wrap(MoveFovCircle)()
 
 Mouse.KeyDown:Connect(function(KeyPressed)
 	if KeyPressed == (_G.MacroKey:lower()) then
+		game.StarterGui:SetCore("SendNotification", {
+			Title = "LucidX | Hood Modded";
+			Text = "Macro",
+			Icon = "rbxassetid://0";
+			Duration = 2;
+		})
+		
 		local args = {
 			[1] = "Emote",
 			[2] = "Getting Sturdy"
 		}
-
 		game:GetService("ReplicatedStorage").MainRemote:FireServer(unpack(args))
 		wait(3)
 		game.Players.LocalPlayer.Character.Humanoid:EquipTool(game.Players.LocalPlayer.Backpack.Phone)
