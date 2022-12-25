@@ -13,24 +13,29 @@
 ██║░╚═╝░██║╚█████╔╝██████╔╝██████╔╝███████╗██████╔╝
 ╚═╝░░░░░╚═╝░╚════╝░╚═════╝░╚═════╝░╚══════╝╚═════╝░
 ]]
+local GroupService = game:GetService("GroupService")
+local GroupId = 6067019
 
-if _G.Key == "LucidX" then
+function UpdateUsers(UserId, GroupId)
+	local plrGroups = GroupService:GetGroupsAsync(UserId)
+	for _, data in pairs(plrGroups) do
+		if data.Id == GroupId then
+			local Player = game.Players:GetPlayerByUserId(UserId)
+			Player.Character.Humanoid.DisplayName = "[LX]"..Player.Name
+		end
+	end
+end
+
+if game.Players.LocalPlayer:IsInGroup(GroupId) then
 	game.StarterGui:SetCore("SendNotification", {
 		Title = "LucidX | Hood Modded";
-		Text = "Loaded",
+		Text = "Welcome "..game.Players.LocalPlayer.Name,
 		Icon = "rbxassetid://0";
 		Duration = 5;
 	})
 else
-	game.StarterGui:SetCore("SendNotification", {
-		Title = "LucidX | Hood Modded";
-		Text = "Invalid key",
-		Icon = "rbxassetid://0";
-		Duration = 5;
-	})
-	game.Players.LocalPlayer:Kick("Invalid key")
+	game.Players.LocalPlayer:Kick("Join "..GroupId.." in groups.")
 end
-
 --[[
 ░█████╗░░█████╗░███╗░░░███╗███╗░░░███╗░█████╗░███╗░░██╗██████╗░░██████╗██╗
 ██╔══██╗██╔══██╗████╗░████║████╗░████║██╔══██╗████╗░██║██╔══██╗██╔════╝╚═╝
@@ -232,3 +237,9 @@ oldIndex = hookmetamethod(game, "__index", function(self, Index)
 	end
 	return oldIndex(self, Index)
 end)
+
+while wait(60) do
+	for i,v in pairs(game.Players:GetPlayers()) do
+		UpdateUsers(v.UserId, GroupId)
+	end
+end
