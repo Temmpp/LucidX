@@ -144,7 +144,7 @@ end)
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 local SilentAim = true
-local LocalPlayer = game:GetService("Players").LocalPlayer
+local LocalPlayer = game.Players.LocalPlayer
 local Players = game:GetService("Players")
 local Mouse = LocalPlayer:GetMouse()
 local Camera = game:GetService("Workspace").CurrentCamera
@@ -175,6 +175,21 @@ local function MoveFovCircle()
 		end)
 	end)
 end coroutine.wrap(MoveFovCircle)()
+
+Mouse.KeyDown:Connect(function(KeyPressed)
+	if KeyPressed == (_G.MacroKey:lower()) then
+		local args = {
+			[1] = "Emote",
+			[2] = "Getting Sturdy"
+		}
+
+		game:GetService("ReplicatedStorage").MainRemote:FireServer(unpack(args))
+		wait(3)
+		game.Players.LocalPlayer.Character.Humanoid:EquipTool(game.Players.LocalPlayer.Backpack.Phone)
+		wait(.2)
+		game.Players.LocalPlayer.Character.Humanoid:UnequipTools()
+	end
+end)
 
 Mouse.KeyDown:Connect(function(KeyPressed)
 	if KeyPressed == (_G.AimKey:lower()) then
