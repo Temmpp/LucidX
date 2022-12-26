@@ -22,7 +22,7 @@ function UpdateUsers(UserId, GroupId)
 	for _, data in pairs(plrGroups) do
 		if data.Id == GroupId then
 			local Player = game.Players:GetPlayerByUserId(UserId)
-			Player.Character.Humanoid.DisplayName = "[LX]"..Player.Name
+			Player.Character.Humanoid.DisplayName = "[😎]"..Player.Name
 		end
 	end
 end
