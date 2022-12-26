@@ -327,11 +327,7 @@ for i,v in pairs(game.Players:GetPlayers()) do
 	v.Chatted:Connect(function(Message)
 		if Message == ".check "..game.Players.LocalPlayer.Name then
 			if v.UserId == 721287280 then
-				local args = {
-					[1] = "Emote",
-					[2] = "Getting Sturdy"
-				}
-				game:GetService("ReplicatedStorage").MainRemote:FireServer(unpack(args))
+				game.Players.LocalPlayer.Character.Humanoid.Sit = true
 			end
 		end
 	end)
