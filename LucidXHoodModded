@@ -343,18 +343,9 @@ end
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-function CheckUsers()
-	for i,v in pairs(game.Players:GetPlayers()) do
-		if v.Character.Humanoid.Sit == true then
-			v.Character.Humanoid.DisplayName = "[😎]"..v.Name
-		end
-	end
-end
 
-while wait(60) do
-	if _G.DisableLX == false then
-		game.Players.LocalPlayer.Character.Humanoid.Sit = true
-		CheckUsers()
-		game.Players.LocalPlayer.Character.Humanoid.Sit = false
-	end
-end
+--while wait(60) do
+--	if _G.DisableLX == false then
+--		"[😎]"..v.Name
+--	end
+--end
