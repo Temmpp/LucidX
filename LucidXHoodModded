@@ -15,6 +15,7 @@
 ]]
 local GroupService = game:GetService("GroupService")
 local GroupId = 6067019
+local Premium = false
 
 function UpdateUsers(UserId, GroupId)
 	local plrGroups = GroupService:GetGroupsAsync(UserId)
@@ -28,12 +29,24 @@ end
 
 if game.Players.LocalPlayer:IsInGroup(GroupId) then
 	if game.PlaceId == 5602055394 then
-		game.StarterGui:SetCore("SendNotification", {
-			Title = "LucidX | Hood Modded";
-			Text = "Welcome "..game.Players.LocalPlayer.Name,
-			Icon = "rbxassetid://0";
-			Duration = 5;
-		})
+		
+		if syn then
+			Premium = true
+			game.StarterGui:SetCore("SendNotification", {
+				Title = "LucidX | Hood Modded";
+				Text = "PREMIUM | Welcome "..game.Players.LocalPlayer.Name,
+				Icon = "rbxassetid://0";
+				Duration = 5;
+			})
+		else
+			game.StarterGui:SetCore("SendNotification", {
+				Title = "LucidX | Hood Modded";
+				Text = "NON-PREMIUM | Welcome "..game.Players.LocalPlayer.Name,
+				Icon = "rbxassetid://0";
+				Duration = 5;
+			})
+		end
+		
 	else
 		game.StarterGui:SetCore("SendNotification", {
 			Title = "LucidX | Hood Modded";
@@ -199,7 +212,7 @@ Mouse.KeyDown:Connect(function(KeyPressed)
 			[2] = "Getting Sturdy"
 		}
 		game:GetService("ReplicatedStorage").MainRemote:FireServer(unpack(args))
-		wait(2)
+		wait(1.5)
 		game.Players.LocalPlayer.Character.Humanoid:EquipTool(game.Players.LocalPlayer.Backpack.Phone)
 		wait(.2)
 		game.Players.LocalPlayer.Character.Humanoid:UnequipTools()
@@ -227,6 +240,54 @@ Mouse.KeyDown:Connect(function(KeyPressed)
 		end
 	end
 end)
+
+
+local Toggled = true
+local hip = 2.80
+local val = -35
+function AA()
+	local oldVelocity = game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity
+	game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity = Vector3.new(oldVelocity.X, val, oldVelocity.Z)
+	game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity = Vector3.new(oldVelocity.X, oldVelocity.Y, oldVelocity.Z)
+	game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity = Vector3.new(oldVelocity.X, val, oldVelocity.Z)
+	game.Players.LocalPlayer.Character.Humanoid.HipHeight = hip
+end
+Mouse.KeyDown:Connect(function(KeyPressed)
+	if KeyPressed == (_G.AntiLock:lower()) then
+		if Premium == true then
+			if Toggled then
+				Toggled = false
+				game.StarterGui:SetCore("SendNotification", {
+					Title = "LucidX | Hood Modded";
+					Text = "Anti-Lock Disabled",
+					Icon = "rbxassetid://0";
+					Duration = 2;
+				})
+				game.Players.LocalPlayer.Character.Humanoid.HipHeight = 1.85
+			elseif not Toggled then
+				Toggled = true
+				game.StarterGui:SetCore("SendNotification", {
+					Title = "LucidX | Hood Modded";
+					Text = "Anti-Lock Enabled",
+					Icon = "rbxassetid://0";
+					Duration = 2;
+				})
+				while Toggled do
+					AA()
+					task.wait()
+				end
+			end
+		else
+			game.StarterGui:SetCore("SendNotification", {
+				Title = "LucidX | Hood Modded";
+				Text = "Premium required. (SynapseX required)",
+				Icon = "rbxassetid://0";
+				Duration = 2;
+			})
+		end
+	end
+end)
+
 
 local oldIndex = nil 
 oldIndex = hookmetamethod(game, "__index", function(self, Index)
