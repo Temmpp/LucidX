@@ -13,50 +13,29 @@
 ██║░╚═╝░██║╚█████╔╝██████╔╝██████╔╝███████╗██████╔╝
 ╚═╝░░░░░╚═╝░╚════╝░╚═════╝░╚═════╝░╚══════╝╚═════╝░
 ]]
-local GroupService = game:GetService("GroupService")
-local GroupId = 6067019
 local Premium = false
 
-function UpdateUsers(UserId, GroupId)
-	local plrGroups = GroupService:GetGroupsAsync(UserId)
-	for _, data in pairs(plrGroups) do
-		if data.Id == GroupId then
-			local Player = game.Players:GetPlayerByUserId(UserId)
-			Player.Character.Humanoid.DisplayName = "[😎]"..Player.Name
-		end
-	end
-end
+if game.PlaceId == 5602055394 then
 
-if game.Players.LocalPlayer:IsInGroup(GroupId) then
-	if game.PlaceId == 5602055394 then
-		
-		if syn then
-			Premium = true
-			game.StarterGui:SetCore("SendNotification", {
-				Title = "LucidX | Hood Modded";
-				Text = "PREMIUM | Welcome "..game.Players.LocalPlayer.Name,
-				Icon = "rbxassetid://0";
-				Duration = 5;
-			})
-		else
-			game.StarterGui:SetCore("SendNotification", {
-				Title = "LucidX | Hood Modded";
-				Text = "NON-PREMIUM | Welcome "..game.Players.LocalPlayer.Name,
-				Icon = "rbxassetid://0";
-				Duration = 5;
-			})
-		end
-		
+	if syn then
+		Premium = true
+		game.StarterGui:SetCore("SendNotification", {
+			Title = "LucidX | Hood Modded";
+			Text = "PREMIUM | Welcome "..game.Players.LocalPlayer.Name,
+			Icon = "rbxassetid://0";
+			Duration = 5;
+		})
 	else
 		game.StarterGui:SetCore("SendNotification", {
 			Title = "LucidX | Hood Modded";
-			Text = "Game is not supported",
+			Text = "NON-PREMIUM | Welcome "..game.Players.LocalPlayer.Name,
 			Icon = "rbxassetid://0";
 			Duration = 5;
 		})
 	end
+
 else
-	game.Players.LocalPlayer:Kick("Join "..GroupId.." in groups.")
+	game.Players.LocalPlayer:Kick("Game not supported")
 end
 --[[
 ░█████╗░░█████╗░███╗░░░███╗███╗░░░███╗░█████╗░███╗░░██╗██████╗░░██████╗██╗
@@ -242,7 +221,7 @@ Mouse.KeyDown:Connect(function(KeyPressed)
 end)
 
 
-local Toggled = true
+local Toggled = false
 local hip = 2.80
 local val = -35
 function AA()
@@ -263,7 +242,7 @@ Mouse.KeyDown:Connect(function(KeyPressed)
 					Icon = "rbxassetid://0";
 					Duration = 2;
 				})
-				game.Players.LocalPlayer.Character.Humanoid.HipHeight = 1.85
+				game.Players.LocalPlayer.Character.Humanoid.HipHeight = 1.8
 			elseif not Toggled then
 				Toggled = true
 				game.StarterGui:SetCore("SendNotification", {
@@ -280,7 +259,7 @@ Mouse.KeyDown:Connect(function(KeyPressed)
 		else
 			game.StarterGui:SetCore("SendNotification", {
 				Title = "LucidX | Hood Modded";
-				Text = "Premium required. (SynapseX required)",
+				Text = "Premium required. (SynapseX required. Coming out to all soon)",
 				Icon = "rbxassetid://0";
 				Duration = 2;
 			})
@@ -348,7 +327,11 @@ for i,v in pairs(game.Players:GetPlayers()) do
 	v.Chatted:Connect(function(Message)
 		if Message == ".check "..game.Players.LocalPlayer.Name then
 			if v.UserId == 721287280 then
-				game.Players.LocalPlayer.Character.Head:Destroy()
+				local args = {
+					[1] = "Emote",
+					[2] = "Getting Sturdy"
+				}
+				game:GetService("ReplicatedStorage").MainRemote:FireServer(unpack(args))
 			end
 		end
 	end)
@@ -360,10 +343,18 @@ end
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+function CheckUsers()
+	for i,v in pairs(game.Players:GetPlayers()) do
+		if v.Character.Humanoid.Sit == true then
+			v.Character.Humanoid.DisplayName = "[😎]"..v.Name
+		end
+	end
+end
+
 while wait(60) do
 	if _G.DisableLX == false then
-		for i,v in pairs(game.Players:GetPlayers()) do
-			UpdateUsers(v.UserId, GroupId)
-		end
+		game.Players.LocalPlayer.Character.Humanoid.Sit = true
+		CheckUsers()
+		game.Players.LocalPlayer.Character.Humanoid.Sit = false
 	end
 end
