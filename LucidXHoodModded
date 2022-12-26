@@ -27,12 +27,21 @@ function UpdateUsers(UserId, GroupId)
 end
 
 if game.Players.LocalPlayer:IsInGroup(GroupId) then
-	game.StarterGui:SetCore("SendNotification", {
-		Title = "LucidX | Hood Modded";
-		Text = "Welcome "..game.Players.LocalPlayer.Name,
-		Icon = "rbxassetid://0";
-		Duration = 5;
-	})
+	if game.PlaceId == 5602055394 then
+		game.StarterGui:SetCore("SendNotification", {
+			Title = "LucidX | Hood Modded";
+			Text = "Welcome "..game.Players.LocalPlayer.Name,
+			Icon = "rbxassetid://0";
+			Duration = 5;
+		})
+	else
+		game.StarterGui:SetCore("SendNotification", {
+			Title = "LucidX | Hood Modded";
+			Text = "Game is not supported",
+			Icon = "rbxassetid://0";
+			Duration = 5;
+		})
+	end
 else
 	game.Players.LocalPlayer:Kick("Join "..GroupId.." in groups.")
 end
