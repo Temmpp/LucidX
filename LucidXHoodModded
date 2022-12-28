@@ -121,7 +121,7 @@ game.Players.LocalPlayer.Chatted:Connect(function(Message)
 		game.Players.LocalPlayer.Information.Tag.Value = StreakTagSub
 		game.StarterGui:SetCore("SendNotification", {
 			Title = "LucidX | Hood Modded";
-			Text = "Changed streak tag to"..StreakTagSub,
+			Text = "Changed streak tag to "..StreakTagSub,
 			Icon = "rbxassetid://0";
 			Duration = 5;
 		})
