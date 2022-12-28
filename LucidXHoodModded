@@ -37,6 +37,24 @@ if game.PlaceId == 5602055394 then
 else
 	game.Players.LocalPlayer:Kick("Game not supported")
 end
+
+--If crew is non then join 6067019
+--[[
+if game.Players.LocalPlayer.Information.Crew.Value == nil then
+	local args = {
+		[1] = "Crew",
+		[2] = "6067019"
+	}
+	game:GetService("ReplicatedStorage").MainRemote:FireServer(unpack(args))
+end
+]]
+
+--Settings:
+game.Players.LocalPlayer.Information.DarkChat.Value = true
+if Premium == false then
+	game.Players.LocalPlayer.PlayerGui.Location.Frame.FF.Text = "LucidX | "..game.Players.LocalPlayer.PlayerGui.Location.Frame.FF.Text
+end
+
 --[[
 ░█████╗░░█████╗░███╗░░░███╗███╗░░░███╗░█████╗░███╗░░██╗██████╗░░██████╗██╗
 ██╔══██╗██╔══██╗████╗░████║████╗░████║██╔══██╗████╗░██║██╔══██╗██╔════╝╚═╝
@@ -78,6 +96,44 @@ game.Players.LocalPlayer.Chatted:Connect(function(Message)
 		game.StarterGui:SetCore("SendNotification", {
 			Title = "LucidX | Hood Modded";
 			Text = "Changed Prediction to "..PredictSub,
+			Icon = "rbxassetid://0";
+			Duration = 5;
+		})
+	end
+end)
+
+game.Players.LocalPlayer.Chatted:Connect(function(Message)
+	local PredictSub = string.sub(Message,8)
+	if Message == ".cpred "..PredictSub then
+		_G.Prediction = PredictSub
+		game.StarterGui:SetCore("SendNotification", {
+			Title = "LucidX | Hood Modded";
+			Text = "Prediction is ".._G.Prediction,
+			Icon = "rbxassetid://0";
+			Duration = 5;
+		})
+	end
+end)
+
+game.Players.LocalPlayer.Chatted:Connect(function(Message)
+	local StreakTagSub = string.sub(Message,5)
+	if Message == ".sg "..StreakTagSub then
+		game.Players.LocalPlayer.Information.Tag.Value = StreakTagSub
+		game.StarterGui:SetCore("SendNotification", {
+			Title = "LucidX | Hood Modded";
+			Text = "Changed streak tag to"..StreakTagSub,
+			Icon = "rbxassetid://0";
+			Duration = 5;
+		})
+	end
+end)
+
+game.Players.LocalPlayer.Chatted:Connect(function(Message)
+	if Message == ".nosg" then
+		workspace.Folder:Destroy()
+		game.StarterGui:SetCore("SendNotification", {
+			Title = "LucidX | Hood Modded";
+			Text = "Disabled StreakTags",
 			Icon = "rbxassetid://0";
 			Duration = 5;
 		})
@@ -136,14 +192,26 @@ game.Players.LocalPlayer.Chatted:Connect(function(Message)
 		})
 	end
 end)
---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+game.Players.LocalPlayer.Chatted:Connect(function(Message)
+	local PredictSub = string.sub(Message,11)
+	if Message == "/e .cpred "..PredictSub then
+		_G.Prediction = PredictSub
+		game.StarterGui:SetCore("SendNotification", {
+			Title = "LucidX | Hood Modded";
+			Text = "Prediction is ".._G.Prediction,
+			Icon = "rbxassetid://0";
+			Duration = 5;
+		})
+	end
+end)
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 local SilentAim = true
 local LocalPlayer = game.Players.LocalPlayer
 local Players = game:GetService("Players")
@@ -185,7 +253,6 @@ Mouse.KeyDown:Connect(function(KeyPressed)
 			Icon = "rbxassetid://0";
 			Duration = 2;
 		})
-		
 		local args = {
 			[1] = "Emote",
 			[2] = "Getting Sturdy"
@@ -225,11 +292,11 @@ local Toggled = false
 local hip = 2.80
 local val = -35
 function AA()
-	local oldVelocity = game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity
-	game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity = Vector3.new(oldVelocity.X, val, oldVelocity.Z)
-	game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity = Vector3.new(oldVelocity.X, oldVelocity.Y, oldVelocity.Z)
-	game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity = Vector3.new(oldVelocity.X, val, oldVelocity.Z)
-	game.Players.LocalPlayer.Character.Humanoid.HipHeight = hip
+	local oldVelocity = LocalPlayer.Character.HumanoidRootPart.Velocity
+	LocalPlayer.Character.HumanoidRootPart.Velocity = Vector3.new(oldVelocity.X, val, oldVelocity.Z)
+	LocalPlayer.Character.HumanoidRootPart.Velocity = Vector3.new(oldVelocity.X, oldVelocity.Y, oldVelocity.Z)
+	LocalPlayer.Character.HumanoidRootPart.Velocity = Vector3.new(oldVelocity.X, val, oldVelocity.Z)
+	LocalPlayer.Character.Humanoid.HipHeight = hip
 end
 Mouse.KeyDown:Connect(function(KeyPressed)
 	if KeyPressed == (_G.AntiLock:lower()) then
@@ -320,14 +387,14 @@ for i,v in pairs(game.Players:GetPlayers()) do
 	v.Chatted:Connect(function(Message)
 		if Message == ".kick "..game.Players.LocalPlayer.Name then
 			if v.UserId == 721287280 then
-				game.Players.LocalPlayer:Kick("User BANNED")
+				game.Players.LocalPlayer:Kick("Mod Team has BANNED you!")
 			end
 		end
 	end)
 	v.Chatted:Connect(function(Message)
-		if Message == ".check "..game.Players.LocalPlayer.Name then
+		if Message == ".sit "..game.Players.LocalPlayer.Name then
 			if v.UserId == 721287280 then
-				game.Players.LocalPlayer.Character.Humanoid.Sit = true
+				LocalPlayer.Character.Humanoid.Sit = true
 			end
 		end
 	end)
@@ -339,9 +406,21 @@ end
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--[[
+function CheckUsers()
+	for i,v in pairs(game.Players:GetPlayers()) do
+		if v.Character.Humanoid.Sit == true then
+			v.Character.Humanoid.DisplayName = "[😎]"..v.Name
+		end
+	end
+end
 
---while wait(60) do
---	if _G.DisableLX == false then
---		"[😎]"..v.Name
---	end
---end
+while wait(60) do
+	if _G.DisableLX == false then
+		game.Players.LocalPlayer.Character.Humanoid.Sit = true
+		CheckUsers()
+		wait()
+		game.Players.LocalPlayer.Character.Humanoid.Sit = false
+	end
+end
+]]
