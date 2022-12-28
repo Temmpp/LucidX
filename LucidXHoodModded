@@ -103,9 +103,7 @@ game.Players.LocalPlayer.Chatted:Connect(function(Message)
 end)
 
 game.Players.LocalPlayer.Chatted:Connect(function(Message)
-	local PredictSub = string.sub(Message,8)
-	if Message == ".cpred "..PredictSub then
-		_G.Prediction = PredictSub
+	if Message == ".cpred" then
 		game.StarterGui:SetCore("SendNotification", {
 			Title = "LucidX | Hood Modded";
 			Text = "Prediction is ".._G.Prediction,
@@ -194,9 +192,7 @@ game.Players.LocalPlayer.Chatted:Connect(function(Message)
 end)
 
 game.Players.LocalPlayer.Chatted:Connect(function(Message)
-	local PredictSub = string.sub(Message,11)
-	if Message == "/e .cpred "..PredictSub then
-		_G.Prediction = PredictSub
+	if Message == "/e .cpred" then
 		game.StarterGui:SetCore("SendNotification", {
 			Title = "LucidX | Hood Modded";
 			Text = "Prediction is ".._G.Prediction,
