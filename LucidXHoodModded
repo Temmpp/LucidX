@@ -14,9 +14,16 @@
 ╚═╝░░░░░╚═╝░╚════╝░╚═════╝░╚═════╝░╚══════╝╚═════╝░
 ]]
 local Premium = false
+local PremiumCodes = {"",""}
 
-if game.PlaceId == 5602055394 then
-
+if game.PlaceId == 5602055394 or 9824221333 then
+	
+	for i,v in pairs(PremiumCodes) do
+		if _G.Premium == PremiumCodes then
+			Premium = true
+		end
+	end
+	
 	if syn then
 		Premium = true
 		game.StarterGui:SetCore("SendNotification", {
