@@ -1,0 +1,205 @@
+local Player = game.Players.LocalPlayer
+
+if game.PlaceId == 155615604 then
+	game.StarterGui:SetCore("SendNotification", {
+		Title = "LucidX | Prison Life";
+		Text = "Welcome "..game.Players.LocalPlayer.Name,
+		Icon = "rbxassetid://0";
+		Duration = 5;
+	})
+else
+	game.Players.LocalPlayer:Kick("Game not supported")
+end
+game.Players.LocalPlayer.PlayerGui.Home.fadeFrame.Visible = false
+
+--[[
+░█████╗░░█████╗░███╗░░░███╗███╗░░░███╗░█████╗░███╗░░██╗██████╗░░██████╗██╗
+██╔══██╗██╔══██╗████╗░████║████╗░████║██╔══██╗████╗░██║██╔══██╗██╔════╝╚═╝
+██║░░╚═╝██║░░██║██╔████╔██║██╔████╔██║███████║██╔██╗██║██║░░██║╚█████╗░░░░
+██║░░██╗██║░░██║██║╚██╔╝██║██║╚██╔╝██║██╔══██║██║╚████║██║░░██║░╚═══██╗░░░
+╚█████╔╝╚█████╔╝██║░╚═╝░██║██║░╚═╝░██║██║░░██║██║░╚███║██████╔╝██████╔╝██╗
+░╚════╝░░╚════╝░╚═╝░░░░░╚═╝╚═╝░░░░░╚═╝╚═╝░░╚═╝╚═╝░░╚══╝╚═════╝░╚═════╝░╚═╝
+]]
+--Guns:
+Player.Chatted:Connect(function(Message)
+	if Message == ".allguns" then
+		local args = {
+			[1] = workspace.Prison_ITEMS.giver:FindFirstChild("AK-47").ITEMPICKUP
+		}
+		local args2 = {
+			[1] = workspace.Prison_ITEMS.giver:FindFirstChild("Remington 870").ITEMPICKUP
+		}
+		local args3 = {
+			[1] = workspace.Prison_ITEMS.giver.M9.ITEMPICKUP
+		}
+		workspace.Remote.ItemHandler:InvokeServer(unpack(args))
+		workspace.Remote.ItemHandler:InvokeServer(unpack(args2))
+		workspace.Remote.ItemHandler:InvokeServer(unpack(args3))
+		game.StarterGui:SetCore("SendNotification", {
+			Title = "LucidX | Prison Life";
+			Text = "Gave all guns",
+			Icon = "rbxassetid://0";
+			Duration = 2;
+		})
+	end
+end)
+
+--Switch Teams:
+Player.Chatted:Connect(function(Message)
+	if Message == ".neutral" then
+		local args = {
+			[1] = "Medium stone grey"
+		}
+		workspace.Remote.TeamEvent:FireServer(unpack(args))
+		game.StarterGui:SetCore("SendNotification", {
+			Title = "LucidX | Prison Life";
+			Text = "Team Neutral",
+			Icon = "rbxassetid://0";
+			Duration = 2;
+		})
+	end
+end)
+
+Player.Chatted:Connect(function(Message)
+	if Message == ".inmate" then
+		local args = {
+			[1] = "Bright orange"
+		}
+		workspace.Remote.TeamEvent:FireServer(unpack(args))
+		game.StarterGui:SetCore("SendNotification", {
+			Title = "LucidX | Prison Life";
+			Text = "Team Inmate",
+			Icon = "rbxassetid://0";
+			Duration = 2;
+		})
+	end
+end)
+
+Player.Chatted:Connect(function(Message)
+	if Message == ".guard" then
+		local args = {
+			[1] = "Bright blue"
+		}
+		workspace.Remote.TeamEvent:FireServer(unpack(args))
+		game.StarterGui:SetCore("SendNotification", {
+			Title = "LucidX | Prison Life";
+			Text = "Team Guard",
+			Icon = "rbxassetid://0";
+			Duration = 2;
+		})
+	end
+end)
+
+Player.Chatted:Connect(function(Message)
+	if Message == ".criminal" then
+		local args = {
+			[1] = "Really red"
+		}
+		workspace.Remote.TeamEvent:FireServer(unpack(args))
+		game.StarterGui:SetCore("SendNotification", {
+			Title = "LucidX | Prison Life";
+			Text = "Team Criminal",
+			Icon = "rbxassetid://0";
+			Duration = 2;
+		})
+	end
+end)
+--[[
+░██████╗██╗██╗░░░░░███████╗███╗░░██╗████████╗
+██╔════╝██║██║░░░░░██╔════╝████╗░██║╚══██╔══╝
+╚█████╗░██║██║░░░░░█████╗░░██╔██╗██║░░░██║░░░
+░╚═══██╗██║██║░░░░░██╔══╝░░██║╚████║░░░██║░░░
+██████╔╝██║███████╗███████╗██║░╚███║░░░██║░░░
+╚═════╝░╚═╝╚══════╝╚══════╝╚═╝░░╚══╝░░░╚═╝░░░
+
+░█████╗░░█████╗░███╗░░░███╗███╗░░░███╗░█████╗░███╗░░██╗██████╗░░██████╗██╗
+██╔══██╗██╔══██╗████╗░████║████╗░████║██╔══██╗████╗░██║██╔══██╗██╔════╝╚═╝
+██║░░╚═╝██║░░██║██╔████╔██║██╔████╔██║███████║██╔██╗██║██║░░██║╚█████╗░░░░
+██║░░██╗██║░░██║██║╚██╔╝██║██║╚██╔╝██║██╔══██║██║╚████║██║░░██║░╚═══██╗░░░
+╚█████╔╝╚█████╔╝██║░╚═╝░██║██║░╚═╝░██║██║░░██║██║░╚███║██████╔╝██████╔╝██╗
+░╚════╝░░╚════╝░╚═╝░░░░░╚═╝╚═╝░░░░░╚═╝╚═╝░░╚═╝╚═╝░░╚══╝╚═════╝░╚═════╝░╚═╝
+]]
+--Guns:
+Player.Chatted:Connect(function(Message)
+	if Message == "/e .allguns" then
+		local args = {
+			[1] = workspace.Prison_ITEMS.giver:FindFirstChild("AK-47").ITEMPICKUP
+		}
+		local args2 = {
+			[1] = workspace.Prison_ITEMS.giver:FindFirstChild("Remington 870").ITEMPICKUP
+		}
+		local args3 = {
+			[1] = workspace.Prison_ITEMS.giver.M9.ITEMPICKUP
+		}
+		workspace.Remote.ItemHandler:InvokeServer(unpack(args))
+		workspace.Remote.ItemHandler:InvokeServer(unpack(args2))
+		workspace.Remote.ItemHandler:InvokeServer(unpack(args3))
+		game.StarterGui:SetCore("SendNotification", {
+			Title = "LucidX | Prison Life";
+			Text = "Gave all guns",
+			Icon = "rbxassetid://0";
+			Duration = 2;
+		})
+	end
+end)
+
+--Switch Teams:
+Player.Chatted:Connect(function(Message)
+	if Message == "/e .neutral" then
+		local args = {
+			[1] = "Medium stone grey"
+		}
+		workspace.Remote.TeamEvent:FireServer(unpack(args))
+		game.StarterGui:SetCore("SendNotification", {
+			Title = "LucidX | Prison Life";
+			Text = "Team Neutral",
+			Icon = "rbxassetid://0";
+			Duration = 2;
+		})
+	end
+end)
+
+Player.Chatted:Connect(function(Message)
+	if Message == "/e .inmate" then
+		local args = {
+			[1] = "Bright orange"
+		}
+		workspace.Remote.TeamEvent:FireServer(unpack(args))
+		game.StarterGui:SetCore("SendNotification", {
+			Title = "LucidX | Prison Life";
+			Text = "Team Inmate",
+			Icon = "rbxassetid://0";
+			Duration = 2;
+		})
+	end
+end)
+
+Player.Chatted:Connect(function(Message)
+	if Message == "/e .guard" then
+		local args = {
+			[1] = "Bright blue"
+		}
+		workspace.Remote.TeamEvent:FireServer(unpack(args))
+		game.StarterGui:SetCore("SendNotification", {
+			Title = "LucidX | Prison Life";
+			Text = "Team Guard",
+			Icon = "rbxassetid://0";
+			Duration = 2;
+		})
+	end
+end)
+
+Player.Chatted:Connect(function(Message)
+	if Message == "/e .criminal" then
+		local args = {
+			[1] = "Really red"
+		}
+		workspace.Remote.TeamEvent:FireServer(unpack(args))
+		game.StarterGui:SetCore("SendNotification", {
+			Title = "LucidX | Prison Life";
+			Text = "Team Criminal",
+			Icon = "rbxassetid://0";
+			Duration = 2;
+		})
+	end
+end)
