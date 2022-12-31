@@ -52,12 +52,6 @@ if game.Players.LocalPlayer.Information.Crew.Value == nil then
 end
 ]]
 
---Settings:
-game.Players.LocalPlayer.Information.DarkChat.Value = true
-if Premium == false then
-	game.Players.LocalPlayer.PlayerGui.Location.Frame.FF.Text = "LucidX | "..game.Players.LocalPlayer.PlayerGui.Location.Frame.FF.Text
-end
-
 --[[
 ░█████╗░░█████╗░███╗░░░███╗███╗░░░███╗░█████╗░███╗░░██╗██████╗░░██████╗██╗
 ██╔══██╗██╔══██╗████╗░████║████╗░████║██╔══██╗████╗░██║██╔══██╗██╔════╝╚═╝
