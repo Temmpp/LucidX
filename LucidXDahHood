@@ -173,6 +173,7 @@ local Mouse = LocalPlayer:GetMouse()
 local CurrentCamera = Workspace.CurrentCamera
 local SilentAim = true
 
+--[[
 Mouse.KeyDown:Connect(function(KeyPressed)
 	if KeyPressed == (_G.MacroKey:lower()) then
 		game.StarterGui:SetCore("SendNotification", {
@@ -192,6 +193,7 @@ Mouse.KeyDown:Connect(function(KeyPressed)
 		game.Players.LocalPlayer.Character.Humanoid:UnequipTools()
 	end
 end)
+]]
 
 Mouse.KeyDown:Connect(function(KeyPressed)
 	if KeyPressed == (_G.AimKey:lower()) then
