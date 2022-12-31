@@ -14,31 +14,27 @@
 ╚═╝░░░░░╚═╝░╚════╝░╚═════╝░╚═════╝░╚══════╝╚═════╝░
 ]]
 local Premium = false
-local PremiumCodes = {"",""}
+local PremiumCodes = {"43JA3KXZY","3GXZBF3RZ"}
 
 if game.PlaceId == 5602055394 or 2788229376 then
 	
 	for i,v in pairs(PremiumCodes) do
 		if _G.Premium == PremiumCodes then
 			Premium = true
+			game.StarterGui:SetCore("SendNotification", {
+				Title = "LucidX | Hood Modded";
+				Text = "PREMIUM | Welcome "..game.Players.LocalPlayer.Name,
+				Icon = "rbxassetid://0";
+				Duration = 5;
+			})
+		else
+			game.StarterGui:SetCore("SendNotification", {
+				Title = "LucidX | Hood Modded";
+				Text = "NON-PREMIUM | Welcome "..game.Players.LocalPlayer.Name,
+				Icon = "rbxassetid://0";
+				Duration = 5;
+			})
 		end
-	end
-	
-	if syn then
-		Premium = true
-		game.StarterGui:SetCore("SendNotification", {
-			Title = "LucidX | Hood Modded";
-			Text = "PREMIUM | Welcome "..game.Players.LocalPlayer.Name,
-			Icon = "rbxassetid://0";
-			Duration = 5;
-		})
-	else
-		game.StarterGui:SetCore("SendNotification", {
-			Title = "LucidX | Hood Modded";
-			Text = "NON-PREMIUM | Welcome "..game.Players.LocalPlayer.Name,
-			Icon = "rbxassetid://0";
-			Duration = 5;
-		})
 	end
 
 else
@@ -123,13 +119,15 @@ end)
 game.Players.LocalPlayer.Chatted:Connect(function(Message)
 	local StreakTagSub = string.sub(Message,5)
 	if Message == ".sg "..StreakTagSub then
-		game.Players.LocalPlayer.Information.Tag.Value = StreakTagSub
-		game.StarterGui:SetCore("SendNotification", {
-			Title = "LucidX | Hood Modded";
-			Text = "Changed streak tag to "..StreakTagSub,
-			Icon = "rbxassetid://0";
-			Duration = 5;
-		})
+		if Premium == true then
+			game.Players.LocalPlayer.Information.Tag.Value = StreakTagSub
+			game.StarterGui:SetCore("SendNotification", {
+				Title = "LucidX | Hood Modded";
+				Text = "Changed streak tag to "..StreakTagSub,
+				Icon = "rbxassetid://0";
+				Duration = 5;
+			})
+		end
 	end
 end)
 
