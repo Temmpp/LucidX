@@ -19,7 +19,7 @@ local PremiumCodes = {"43JA3KXZY","3GXZBF3RZ"}
 if game.PlaceId == 11866898599 then
 
 	for i,v in pairs(PremiumCodes) do
-		if _G.Premium == PremiumCodes then
+		if _G.Premium == v then
 			Premium = true
 			game.StarterGui:SetCore("SendNotification", {
 				Title = "LucidX | DahHood";
