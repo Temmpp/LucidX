@@ -203,3 +203,9 @@ Player.Chatted:Connect(function(Message)
 		})
 	end
 end)
+
+game.Players.LocalPlayer.Character.Humanoid.Died:Connect(function()
+	local LastPos = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+	wait(5.5)
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = LastPos
+end)
