@@ -16,7 +16,7 @@
 local Premium = false
 local PremiumCodes = {"43JA3KXZY","3GXZBF3RZ"}
 
-if game.PlaceId == 11866898599 then
+if game.PlaceId == 2788229376 then
 
 	for i,v in pairs(PremiumCodes) do
 		if _G.Premium == v then
