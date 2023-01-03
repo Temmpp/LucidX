@@ -22,14 +22,14 @@ if game.PlaceId == 9825515356 then
 		if _G.Premium == v then
 			Premium = true
 			game.StarterGui:SetCore("SendNotification", {
-				Title = "LucidX | DahHood";
+				Title = "LucidX | HoodCustoms";
 				Text = "PREMIUM | Welcome "..game.Players.LocalPlayer.Name,
 				Icon = "rbxassetid://0";
 				Duration = 5;
 			})
 		else
 			game.StarterGui:SetCore("SendNotification", {
-				Title = "LucidX | DahHood";
+				Title = "LucidX | HoodCustoms";
 				Text = "NON-PREMIUM | Welcome "..game.Players.LocalPlayer.Name,
 				Icon = "rbxassetid://0";
 				Duration = 5;
@@ -65,7 +65,7 @@ game.Players.LocalPlayer.Chatted:Connect(function(Message)
 	if Message == ".fov "..FOVSub then
 		workspace.CurrentCamera.FieldOfView = FOVSub
 		game.StarterGui:SetCore("SendNotification", {
-			Title = "LucidX | DahHood";
+			Title = "LucidX | HoodCustoms";
 			Text = "Changed FOV to "..FOVSub,
 			Icon = "rbxassetid://0";
 			Duration = 5;
@@ -78,7 +78,7 @@ game.Players.LocalPlayer.Chatted:Connect(function(Message)
 	if Message == ".pred "..PredictSub then
 		_G.Prediction = PredictSub
 		game.StarterGui:SetCore("SendNotification", {
-			Title = "LucidX | DahHood";
+			Title = "LucidX | HoodCustoms";
 			Text = "Changed Prediction to "..PredictSub,
 			Icon = "rbxassetid://0";
 			Duration = 5;
@@ -89,7 +89,7 @@ end)
 game.Players.LocalPlayer.Chatted:Connect(function(Message)
 	if Message == ".cpred" then
 		game.StarterGui:SetCore("SendNotification", {
-			Title = "LucidX | DahHood";
+			Title = "LucidX | HoodCustoms";
 			Text = "Prediction is ".._G.Prediction,
 			Icon = "rbxassetid://0";
 			Duration = 5;
@@ -116,7 +116,7 @@ game.Players.LocalPlayer.Chatted:Connect(function(Message)
 	if Message == "/e .fov "..FOVSub then
 		workspace.CurrentCamera.FieldOfView = FOVSub
 		game.StarterGui:SetCore("SendNotification", {
-			Title = "LucidX | DahHood";
+			Title = "LucidX | HoodCustoms";
 			Text = "Changed FOV to "..FOVSub,
 			Icon = "rbxassetid://0";
 			Duration = 5;
@@ -129,7 +129,7 @@ game.Players.LocalPlayer.Chatted:Connect(function(Message)
 	if Message == "/e .pred "..PredictSub then
 		_G.Prediction = PredictSub
 		game.StarterGui:SetCore("SendNotification", {
-			Title = "LucidX | DahHood";
+			Title = "LucidX | HoodCustoms";
 			Text = "Changed Prediction to "..PredictSub,
 			Icon = "rbxassetid://0";
 			Duration = 5;
@@ -140,7 +140,7 @@ end)
 game.Players.LocalPlayer.Chatted:Connect(function(Message)
 	if Message == "/e .cpred" then
 		game.StarterGui:SetCore("SendNotification", {
-			Title = "LucidX | DahHood";
+			Title = "LucidX | HoodCustoms";
 			Text = "Prediction is ".._G.Prediction,
 			Icon = "rbxassetid://0";
 			Duration = 5;
@@ -193,7 +193,7 @@ Mouse.KeyDown:Connect(function(KeyPressed)
 	if KeyPressed == (_G.AimKey:lower()) then
 		if SilentAim == false then
 			game.StarterGui:SetCore("SendNotification", {
-				Title = "LucidX | DahHood";
+				Title = "LucidX | HoodCustoms";
 				Text = "Silent Aim Enabled",
 				Icon = "rbxassetid://0";
 				Duration = 2;
@@ -201,7 +201,7 @@ Mouse.KeyDown:Connect(function(KeyPressed)
 			SilentAim = true
 		elseif SilentAim == true then
 			game.StarterGui:SetCore("SendNotification", {
-				Title = "LucidX | DahHood";
+				Title = "LucidX | HoodCustoms";
 				Text = "Silent Aim Disabled",
 				Icon = "rbxassetid://0";
 				Duration = 2;
@@ -228,7 +228,7 @@ Mouse.KeyDown:Connect(function(KeyPressed)
 			if Toggled then
 				Toggled = false
 				game.StarterGui:SetCore("SendNotification", {
-					Title = "LucidX | DahHood";
+					Title = "LucidX | HoodCustoms";
 					Text = "Anti-Lock Disabled",
 					Icon = "rbxassetid://0";
 					Duration = 2;
@@ -237,7 +237,7 @@ Mouse.KeyDown:Connect(function(KeyPressed)
 			elseif not Toggled then
 				Toggled = true
 				game.StarterGui:SetCore("SendNotification", {
-					Title = "LucidX | DahHood";
+					Title = "LucidX | HoodCustoms";
 					Text = "Anti-Lock Enabled",
 					Icon = "rbxassetid://0";
 					Duration = 2;
@@ -249,7 +249,7 @@ Mouse.KeyDown:Connect(function(KeyPressed)
 			end
 		else
 			game.StarterGui:SetCore("SendNotification", {
-				Title = "LucidX | DahHood";
+				Title = "LucidX | HoodCustoms";
 				Text = "Premium required.",
 				Icon = "rbxassetid://0";
 				Duration = 2;
