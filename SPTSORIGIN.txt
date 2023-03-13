@@ -1,4 +1,4 @@
---lucid#2310
+--vxid#5255
 
 
 --[[
@@ -4802,18 +4802,18 @@ while wait() do
 		end)
 	end
 	
-	SPTS.FistStrengthVal.Text = game:GetService("Players").Templvte.PlayerGui:WaitForChild("ScreenGui").MenuFrame.InfoFrame.FSTxt.Text
-	SPTS.BodyToughnessVal.Text = game:GetService("Players").Templvte.PlayerGui:WaitForChild("ScreenGui").MenuFrame.InfoFrame.BTTxt.Text
-	SPTS.MovementSpeedVal.Text = game:GetService("Players").Templvte.PlayerGui:WaitForChild("ScreenGui").MenuFrame.InfoFrame.MSTxt.Text
-	SPTS.JumpForceVal.Text = game:GetService("Players").Templvte.PlayerGui:WaitForChild("ScreenGui").MenuFrame.InfoFrame.JFTxt.Text
-	SPTS.PsychicPowerVal.Text = game:GetService("Players").Templvte.PlayerGui:WaitForChild("ScreenGui").MenuFrame.InfoFrame.PPTxt.Text
+	SPTS.FistStrengthVal.Text = game:GetService("Players").LocalPlayer.PlayerGui:WaitForChild("ScreenGui").MenuFrame.InfoFrame.FSTxt.Text
+	SPTS.BodyToughnessVal.Text = game:GetService("Players").LocalPlayer.PlayerGui:WaitForChild("ScreenGui").MenuFrame.InfoFrame.BTTxt.Text
+	SPTS.MovementSpeedVal.Text = game:GetService("Players").LocalPlayer.PlayerGui:WaitForChild("ScreenGui").MenuFrame.InfoFrame.MSTxt.Text
+	SPTS.JumpForceVal.Text = game:GetService("Players").LocalPlayer.PlayerGui:WaitForChild("ScreenGui").MenuFrame.InfoFrame.JFTxt.Text
+	SPTS.PsychicPowerVal.Text = game:GetService("Players").LocalPlayer.PlayerGui:WaitForChild("ScreenGui").MenuFrame.InfoFrame.PPTxt.Text
 	
-	SPTS.FistStrengthMulti.Text = game:GetService("Players").Templvte.PlayerGui:WaitForChild("ScreenGui").MenuFrame.InfoFrame.FSMultiplierTxt.Text
-	SPTS.BodyToughnessMulti.Text = game:GetService("Players").Templvte.PlayerGui:WaitForChild("ScreenGui").MenuFrame.InfoFrame.BTMultiplierTxt.Text
-	SPTS.MovementSpeedVal_2.Text = game:GetService("Players").Templvte.PlayerGui:WaitForChild("ScreenGui").MenuFrame.InfoFrame.MSMultiplierTxt.Text
-	SPTS.JumpForceVal_2.Text = game:GetService("Players").Templvte.PlayerGui:WaitForChild("ScreenGui").MenuFrame.InfoFrame.JFMultiplierTxt.Text
-	SPTS.PsychicPowerVal_2.Text = game:GetService("Players").Templvte.PlayerGui:WaitForChild("ScreenGui").MenuFrame.InfoFrame.PPMultiplierTxt.Text
-	SPTS.TokensVal.Text = "Tokens: "..game:GetService("Players").Templvte.PlayerGui:WaitForChild("ScreenGui").CurrentGemImgBtn.AmountTxtBtn.Text
+	SPTS.FistStrengthMulti.Text = game:GetService("Players").LocalPlayer.PlayerGui:WaitForChild("ScreenGui").MenuFrame.InfoFrame.FSMultiplierTxt.Text
+	SPTS.BodyToughnessMulti.Text = game:GetService("Players").LocalPlayer.PlayerGui:WaitForChild("ScreenGui").MenuFrame.InfoFrame.BTMultiplierTxt.Text
+	SPTS.MovementSpeedVal_2.Text = game:GetService("Players").LocalPlayer.PlayerGui:WaitForChild("ScreenGui").MenuFrame.InfoFrame.MSMultiplierTxt.Text
+	SPTS.JumpForceVal_2.Text = game:GetService("Players").LocalPlayer.PlayerGui:WaitForChild("ScreenGui").MenuFrame.InfoFrame.JFMultiplierTxt.Text
+	SPTS.PsychicPowerVal_2.Text = game:GetService("Players").LocalPlayer.PlayerGui:WaitForChild("ScreenGui").MenuFrame.InfoFrame.PPMultiplierTxt.Text
+	SPTS.TokensVal.Text = "Tokens: "..game:GetService("Players").LocalPlayer.PlayerGui:WaitForChild("ScreenGui").CurrentGemImgBtn.AmountTxtBtn.Text
 
 	if AutoConcealAura == true then
 		if ConcealedAura == false then
